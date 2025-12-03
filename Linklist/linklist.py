@@ -56,3 +56,10 @@ class SinglyLinkedList:
                 return
             prev = curr
             curr = curr.next
+
+
+linklist = SinglyLinkedList()
+linklist.insert_at_head(5)
+linklist.insert_at_tail(2)
+linklist.search(5)
+linklist.delete(2)
