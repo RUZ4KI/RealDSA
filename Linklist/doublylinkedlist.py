@@ -75,7 +75,7 @@ class DoublyLinkedList:
             return
          curr = curr.next
 
-   def display(self):
+   def __str__(self):
       curr = self.head
       elements = []
       while curr:
@@ -89,4 +89,4 @@ doublylinklist.insert_at_head(2)
 doublylinklist.insert_at_head(3)
 doublylinklist.insert_at_tail(4)
 doublylinklist.delete(3)
-doublylinklist.display()
+doublylinklist
