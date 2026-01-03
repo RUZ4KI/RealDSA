@@ -9,32 +9,58 @@ class BST:
         self.root = None
     
     def insert(self,value):
-        self.root = self.__insert_recursive(self.root,value)
+        self.root = self._insert_recursive(self.root,value)
 
-    def __insert_recursive(self,node,value):
+    def _insert_recursive(self,node,value):
         if node is None:
             return Node(value)
         
         if value < node.value:
-            node.left = self.__insert_recursive(node.left,value)
+            node.left = self._insert_recursive(node.left,value)
 
         elif value > node.value:
-            node.right = self.__insert_recursive(node.right,value)
+            node.right = self._insert_recursive(node.right,value)
 
         return node
     
     def inorder(self):
         arr = []
-        self.__inorder_recursive(self.root,arr)
+        self._inorder_recursive(self.root,arr)
         return arr
     
-    def __inorder_recursive(self,node,arr):
+    def _inorder_recursive(self,node,arr):
         if node is None:
             return
         
-        self.__inorder_recursive(node.left,arr)
+        self._inorder_recursive(node.left,arr)
         arr.append(node.value)
-        self.__inorder_recursive(node.right,arr)
+        self._inorder_recursive(node.right,arr)
+
+    def preorder(self):
+        arr = []
+        self._preorder_recursive(self.root,arr)
+        return arr
+    
+    def _preorder_recursive(self,node,arr):
+        if node is None:
+            return
+        
+        arr.append(node.value)
+        self._preorder_recursive(node.left,arr)
+        self._preorder_recursive(node.right,arr)
+
+    def postorder(self):
+        arr = []
+        self._postorder_recursive(self.root,arr)
+        return arr
+    
+    def _postorder_recursive(self,node,arr):
+        if node is None:
+            return
+        
+        self._postorder_recursive(node.left,arr)
+        self._postorder_recursive(node.right,arr)
+        arr.append(node.value)
 
 bst = BST()
 
@@ -54,3 +80,5 @@ while True:
 
 print("\nInorder Traversal (sorted):")
 print(bst.inorder())
+print(bst.preorder())
+print(bst.postorder())
