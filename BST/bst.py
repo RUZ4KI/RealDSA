@@ -61,6 +61,17 @@ class BST:
         self._postorder_recursive(node.left,arr)
         self._postorder_recursive(node.right,arr)
         arr.append(node.value)
+    
+    def height(self):
+        return self._height_recursive(self.root)
+
+    def _height_recursive(self, node):
+        if node is None:
+            return -1
+        return 1 + max(
+            self._height_recursive(node.left),
+            self._height_recursive(node.right)
+            )
 
 bst = BST()
 
@@ -82,3 +93,4 @@ print("\nInorder Traversal (sorted):")
 print(bst.inorder())
 print(bst.preorder())
 print(bst.postorder())
+print(bst.height())
