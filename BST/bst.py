@@ -67,7 +67,7 @@ class BST:
 
     def _height_recursive(self, node):
         if node is None:
-            return -1
+            return -1  # -1 if height is edge based and 0 if height is nodes based
         return 1 + max(
             self._height_recursive(node.left),
             self._height_recursive(node.right)
